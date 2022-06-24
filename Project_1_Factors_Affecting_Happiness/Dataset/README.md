@@ -1,1 +1,1 @@
-This contains the raw datasets from the years 2015 to 2019 in CSV format. The dataset **All_Years_World_Happiness_Report.xlsx** is cleaned data that is an aggregate of the data from the years 2015 to 2019.
+

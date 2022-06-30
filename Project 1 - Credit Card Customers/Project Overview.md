@@ -28,7 +28,9 @@ Utilized MS SQL Server to clean the data
  
  ii. Created additional data points using current data points for better analysis
  
- iii. 
+### 4. Analysis
+
+A large revolving **revolving balance**, 
 
  
 

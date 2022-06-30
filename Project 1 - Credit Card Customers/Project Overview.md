@@ -4,7 +4,7 @@
 
 This project is centered around a dataset collected from an anonymous bank, *Bank A*. This analysis was focused on the following demographics: age, gender, dependents, education, marital status and income. 
 
-## Analystical Process
+## Analytical Process
 
 ### 1. Defining Objectives
 

@@ -40,11 +40,13 @@ Utilized MS SQL Server with Tableau in order to identify key patterns and insigh
     
 > i. High revolving balance in a low income category with a high transaction count was a strong indicator 
     
-> ii. Customers with an income greater than 60K were male, but females had the highest revolving balance and transaction count
-    
-> iii. Customers aged 40 and up had the highest revolving balance and dependents with females making less than 40K being the majority
+> ii. Customers with an income greater than 60K were only male
 
-> 
+> iii. Females making less than 40K had the highest total revolving balance and transaction count 
+    
+> iii. Customers aged 40 and up had the highest total revolving balance and number of dependents, with females making less than 40K being the majority
+
+> iv. Long-term customers had the highest total revolving balance with males being the majority
 
 
  

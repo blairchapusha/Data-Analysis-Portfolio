@@ -36,7 +36,7 @@ Utilized MS SQL Server to clean the data
 
 Utilized MS SQL Server with Tableau in order to identify key patterns and insights
 
-**Insights**: 
+**Findings**: 
     
 > i. High revolving balance in a low income category with a high transaction count was a strong indicator 
     
@@ -48,7 +48,7 @@ Utilized MS SQL Server with Tableau in order to identify key patterns and insigh
 
 > iv. Long-term customers had the highest total revolving balance with males being the majority
 
-
+## Conclusion
  
 
 

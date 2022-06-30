@@ -18,6 +18,8 @@ The dataset was available on Kaggle as a CSV file. It contained 10127 data obser
  
  ii. Collected the necessary data in separate Excel sheet
  
+ iii. Created a database and data table in Microsoft SQL Server to store collected data
+ 
  iii. Exported the data to Microsoft SQL Server's database for deeper analysis
 
 ### 3. Data Cleaning
@@ -28,9 +30,16 @@ Utilized MS SQL Server to clean the data
  
  ii. Created additional data points using current data points for better analysis
  
+ iii. Connected the database to Tableau for visual analysis
+ 
 ### 4. Analysis
 
-A large revolving **revolving balance**, 
+Utilized MS SQL Server with Tableau in order to identify key patterns and insights
+
+**Insights**: 
+    
+    i. High revolving balance in a low income category with a high transaction count was a strong indicator
+
 
  
 

@@ -14,7 +14,7 @@ Identify which demographics are most at-risk for poor credit management, in orde
 
 The dataset was available on Kaggle as a CSV file. It contained 10127 data observations, divided into 23 data points.
 
-    i. Downloaded the dataset in CSV format and imported it into Microsoft Excel using the Data tool
+> i. Downloaded the dataset in CSV format and imported it into Microsoft Excel using the Data tool
  
     ii. Collected the necessary data in separate Excel sheet
  

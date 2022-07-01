@@ -38,9 +38,9 @@ Utilized MS SQL Server with Tableau in order to identify key patterns and insigh
 
 **Findings**: 
     
-> i. High revolving balance in a low income category with a high transaction count was a strong indicator 
+> i. High revolving balance in a low income category with a high transaction count was a strong indicator of potentially poor credit 
     
-> ii. Customers with an income greater than 60K were only male
+> ii. Customers with an income greater than 60K were solely male
 
 > iii. Females making less than 40K had the highest total revolving balance and transaction count 
     

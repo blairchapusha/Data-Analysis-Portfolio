@@ -44,9 +44,9 @@ Utilized MS SQL Server with Tableau in order to identify key patterns and insigh
 
 > iii. Females making less than 40K had the highest total revolving balance and transaction count 
     
-> iii. Customers aged 40 and up had the highest total revolving balance and number of dependents, with females making less than 40K being the majority
+> iv. Customers aged 40 and up had the highest total revolving balance and number of dependents, with females making less than 40K being the majority
 
-> iv. Long-term customers had the highest total revolving balance with males being the majority
+> v. Long-term customers had the highest total revolving balance with males being the majority
 
 ## Conclusion
  

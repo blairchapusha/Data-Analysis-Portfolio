@@ -1,5 +1,5 @@
-# Project 1: Telco Customers
+# Project Summary
 
-## Introduction
+## Objective
 
 

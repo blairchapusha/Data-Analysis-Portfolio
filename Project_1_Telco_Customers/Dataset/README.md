@@ -1,10 +1,10 @@
 ### Data source: ['Telco Customer Churn' by BLASTCHAR](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
 
-# Description:
+# Description
 
 The Telco customer churn data contains information about a fictional telco company that provided home phone and Internet services to 7043 customers in California in Q3. It indicates which customers have left, stayed, or signed up for their service. Multiple important demographics are included for each customer.
 
-## Column Descriptions:
+## Column Descriptions
 
 **CustomerID**: A unique ID that identifies each customer
 

@@ -32,6 +32,8 @@ The Telco customer churn data contains information about a fictional telco compa
 
 **Device Protection**: Indicates if the customer subscribes to an additional device protection plan for their Internet equipment provided by the company: Yes, No
 
+**Technical Support**: Indicates if the customer subscribes to an additional technical support plan from the company with reduced wait times: Yes, No
+
 **Streaming TV**: Indicates if the customer uses their Internet service to stream television programing from a third party provider: Yes, No. The company does not charge an additional fee for this service
 
 **Streaming Movies**: Indicates if the customer uses their Internet service to stream movies from a third party provider: Yes, No. The company does not charge an additional fee for this service

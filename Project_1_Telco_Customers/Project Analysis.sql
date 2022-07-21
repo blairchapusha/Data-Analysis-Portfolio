@@ -1,5 +1,5 @@
 
--- Create a database in which store the collected data
+-- Create a database called telco_customers 
 CREATE DATABASE telco_customers;
 GO
 
@@ -7,13 +7,12 @@ GO
 USE telco_customers;
 GO
 
--- Create a table to contain customer biographical data
--- Create a table to contains details about services offered to each customer
+-- Create a table called customer_details to contain customer biographical data 
 CREATE TABLE customer_details ( 
 	customer_id VARCHAR(100) PRIMARY KEY, gender VARCHAR(100), senior_citizen VARCHAR(100), 
 	spouse VARCHAR(100), dependents VARCHAR(100)
 	);
-
+-- Create a table called service_details to contain customer service information
 CREATE TABLE service_details (
 	customer_id VARCHAR(100) FOREIGN KEY REFERENCES customer_details (customer_id), tenure INT, phone_service VARCHAR(100), multiple_lines VARCHAR(100), internet_service VARCHAR(100), online_security VARCHAR(100), online_backup VARCHAR(100), device_protection VARCHAR(100), technical_support VARCHAR(100), streaming_tv VARCHAR(100), streaming_movies VARCHAR(100), contract_type VARCHAR(100), paperless_billing VARCHAR(100), payment_method VARCHAR(100), monthly_charges DEC(10,2), total_charges DEC(10,2), churn VARCHAR(100)
 	);
@@ -25,27 +24,27 @@ DELETE FROM customer_details;
 TRUNCATE TABLE service_details;
 GO
 
--- Utilize bulk insert to import data from csv files into each table
+-- Use bulk insert to import data from csv files into each table
 BULK INSERT customer_details
-	FROM 'C:\Users\bchap\OneDrive\Documents\Data Analysis Projects\Project 1 - Telco Customer Churn\Dataset\Data Subset\customer_details.csv'
+	FROM [File Path]
 	WITH (
 		FORMAT = 'CSV',
 		FIRSTROW = 2
 	);
 BULK INSERT service_details
-	FROM 'C:\Users\bchap\OneDrive\Documents\Data Analysis Projects\Project 1 - Telco Customer Churn\Dataset\Data Subset\service_details.csv'
+	FROM [File Path]
 	WITH (
 		FORMAT = 'CSV',
 		FIRSTROW = 2
 	);
 GO
 
--- Display a 100 rows from table to ensure the structure and format is sound
+-- Display first 100 rows from each table to ensure the structure and format is sound
 SELECT TOP 100 * FROM customer_details;
 SELECT TOP 100 * FROM service_details;
 GO
 
--- Identify the different the types of within each table column
+-- Identify the distinct information within each table column
 -- Distinct data in the customer details table
 SELECT DISTINCT gender FROM customer_details;
 SELECT DISTINCT senior_citizen FROM customer_details;
@@ -69,6 +68,22 @@ SELECT DISTINCT payment_method FROM service_details;
 SELECT DISTINCT churn FROM service_details;
 GO 
 
+--Perform basic statistical analysis to get an idea of the numerical data by finding number of customers, and the sum, mean, largest and smallest values of the numerical data
+SELECT COUNT(service_details.customer_id) AS 'Number of Customers'
+	FROM service_details;
+GO
+SELECT 'Sum', SUM(service_details.monthly_charges) AS 'Monthly Charges', SUM(service_details.total_charges) AS 'Total Charges'
+	FROM service_details
+UNION
+SELECT 'Average', AVG(service_details.monthly_charges), AVG(service_details.total_charges)
+	FROM service_details
+UNION
+SELECT 'Minimum', MIN(service_details.monthly_charges), MIN(service_details.total_charges)
+	FROM service_details
+UNION
+SELECT 'Maximum', MAX(service_details.monthly_charges), MAX(service_details.total_charges)
+	FROM service_details;
+GO
 
 -- Select the top 50 rows with the highest total charges to get an idea of customer who spend the most
 SELECT TOP 50 service_details.customer_id, service_details.streaming_tv, service_details.streaming_movies, service_details.monthly_charges, service_details.total_charges FROM service_details

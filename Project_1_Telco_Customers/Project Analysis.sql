@@ -14,7 +14,11 @@ CREATE TABLE customer_details (
 	);
 -- Create a table called service_details to contain customer service information
 CREATE TABLE service_details (
-	customer_id VARCHAR(100) FOREIGN KEY REFERENCES customer_details (customer_id), tenure INT, phone_service VARCHAR(100), multiple_lines VARCHAR(100), internet_service VARCHAR(100), online_security VARCHAR(100), online_backup VARCHAR(100), device_protection VARCHAR(100), technical_support VARCHAR(100), streaming_tv VARCHAR(100), streaming_movies VARCHAR(100), contract_type VARCHAR(100), paperless_billing VARCHAR(100), payment_method VARCHAR(100), monthly_charges DEC(10,2), total_charges DEC(10,2), churn VARCHAR(100)
+	customer_id VARCHAR(100) FOREIGN KEY REFERENCES customer_details (customer_id), tenure INT, phone_service VARCHAR(100), 
+	multiple_lines VARCHAR(100), internet_service VARCHAR(100), online_security VARCHAR(100), online_backup VARCHAR(100), 
+	device_protection VARCHAR(100), technical_support VARCHAR(100), streaming_tv VARCHAR(100), streaming_movies VARCHAR(100), 
+	contract_type VARCHAR(100), paperless_billing VARCHAR(100), payment_method VARCHAR(100), monthly_charges DEC(10,2), total_charges DEC(10,2), 
+	churn VARCHAR(100)
 	);
 GO
 

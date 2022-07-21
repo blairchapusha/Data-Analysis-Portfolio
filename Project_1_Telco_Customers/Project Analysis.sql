@@ -85,8 +85,9 @@ SELECT 'Maximum', MAX(service_details.monthly_charges), MAX(service_details.tota
 	FROM service_details;
 GO
 
--- Select the top 50 rows with the highest total charges to get an idea of customer who spend the most
-SELECT TOP 50 service_details.customer_id, service_details.streaming_tv, service_details.streaming_movies, service_details.monthly_charges, service_details.total_charges FROM service_details
+-- Select the top 50 rows with the highest total charges to get an idea of customer who spent the most
+SELECT TOP 100 * FROM service_details
+	INNER JOIN customer_details ON service_details.customer_id = customer_details.customer_id
 	ORDER BY service_details.total_charges DESC;
 GO
 
@@ -116,34 +117,20 @@ SELECT DISTINCT service_details.internet_service  AS 'internet_service_categorie
 	WHERE service_details.churn = 'Yes'
 	GROUP BY service_details.internet_service;
 
--- Analyze the average charge for each gender with dependents for both current and churned customers
-SELECT DISTINCT customer_details.gender AS 'current_customer_gender', CAST(AVG(service_details.monthly_charges) AS DEC(10,2)) AS 'average_monthly_charge', CAST(AVG(service_details.total_charges) AS DEC(10,2)) AS 'average_total_charge'
-	FROM customer_details
-	INNER JOIN service_details ON customer_details.customer_id = service_details.customer_id
-	WHERE customer_details.dependents = 'Yes' AND service_details.churn = 'No'
-	GROUP BY customer_details.gender;
-
-SELECT DISTINCT customer_details.gender 'churned_customer_gender', CAST(AVG(service_details.monthly_charges) AS DEC(10,2)) AS 'average_monthly_charge', CAST(AVG(service_details.total_charges) AS DEC(10,2)) AS 'average_total_charge'
-	FROM customer_details
-	INNER JOIN service_details ON customer_details.customer_id = service_details.customer_id
-	WHERE customer_details.dependents = 'Yes' AND service_details.churn = 'Yes'
-	GROUP BY customer_details.gender;
-GO
-
 -- Examine how current customers and churned customers vary based on their tenure
-SELECT DISTINCT service_details.tenure, COUNT(service_details.tenure) AS 'number_of_current_customers' 
+SELECT DISTINCT service_details.tenure, COUNT(service_details.tenure) AS 'Number of Current Customers' 
 	FROM service_details
 	WHERE service_details.churn = 'No'
 	GROUP BY service_details.tenure 
 	ORDER BY service_details.tenure;
 
-SELECT DISTINCT service_details.tenure, COUNT(service_details.tenure) AS 'number_of_churned_customers' 
+SELECT DISTINCT service_details.tenure, COUNT(service_details.tenure) AS 'Number of Churned Customers' 
 	FROM service_details
 	WHERE service_details.churn = 'Yes'
 	GROUP BY service_details.tenure 
 	ORDER BY service_details.tenure;
 
--- Create an additional column to represent time intervals in the tenure
+-- Create an additional column to represent time intervals in the tenure and group data
 ALTER TABLE service_details
 	ADD tenure_period VARCHAR(100);
 GO
@@ -172,14 +159,14 @@ UPDATE service_details
 	WHERE tenure > 60 AND tenure <= 72;
 
 -- Exmine how the number of customers vary with each interval
-SELECT service_details.tenure_period, COUNT(service_details.customer_id) AS 'number_of_churned_customers'
+SELECT service_details.tenure_period, COUNT(service_details.customer_id) AS 'Number of Churned Customers'
 	FROM service_details
 	WHERE service_details.churn = 'Yes'
 	GROUP BY service_details.tenure_period
-	ORDER BY service_details.tenure_period;
+	ORDER BY COUNT(service_details.customer_id) DESC;
 
-SELECT service_details.tenure_period, COUNT(service_details.customer_id) AS 'number_of_churned_customers'
+SELECT service_details.tenure_period, COUNT(service_details.customer_id) AS 'Number of Current Customers'
 	FROM service_details
 	WHERE service_details.churn = 'No'
 	GROUP BY service_details.tenure_period
-	ORDER BY service_details.tenure_period;
+	ORDER BY COUNT(service_details.customer_id) DESC;
